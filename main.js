@@ -16,8 +16,15 @@ try {
                     fs.copyFile(webConfigFile, `${destPath}/web.config`, () => {
                         console.log(`Copied ${webConfigFile} to ${destPath}/web.config.`);
                     });
-                } else {
-                    core.setFailed(`ERROR: "${webConfigFile}" does not exist.`);
+                }
+            });
+
+            const siteLicFile = `${envDir}/site.lic`;
+            fs.exists(siteLicFile, (siteLicExists) => {
+                if (siteLicExists) {
+                    fs.copyFile(siteLicFile, `${destPath}/bin/site.lic`, () => {
+                        console.log(`Copied ${siteLicFile} to ${destPath}/bin/site.lic.`);
+                    });
                 }
             });
         } else {
