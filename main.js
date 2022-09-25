@@ -28,7 +28,7 @@ try {
                 }
             });
         } else {
-            core.setFailed(`ERROR: The directory "environment-files/${env}" does not exist.`);
+            console.log(`WARNING: The directory "environment-files/${env}" does not exist.`);
         }
     });
 } catch (error) {
