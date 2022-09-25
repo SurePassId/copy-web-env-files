@@ -1,0 +1,14 @@
+name: 'Copy environment specific files'
+description: 'Copy files for the specified environment.'
+inputs:
+  deployment-environment:
+    description: 'Environment to deploy.'
+    required: true
+    default: 'prod'
+  path:
+    description: 'The publish path to copy the files to.'
+    required: true
+    default: '/'
+runs:
+  using: 'node16'
+  main: 'index.js'
