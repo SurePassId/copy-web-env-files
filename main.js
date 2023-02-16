@@ -19,6 +19,15 @@ try {
                 }
             });
 
+            const appInsightsConfigFile = `${envDir}/ApplicationInsights.config`;
+            fs.exists(appInsightsConfigFile, (appInsightsConfigExists) => {
+                if (appInsightsConfigExists) {
+                    fs.copyFile(appInsightsConfigFile, `${destPath}/ApplicationInsights.config`, () => {
+                        console.log(`Copied ${appInsightsConfigFile} to ${destPath}/ApplicationInsights.config.`);
+                    });
+                }
+            });
+
             const siteLicFile = `${envDir}/site.lic`;
             fs.exists(siteLicFile, (siteLicExists) => {
                 if (siteLicExists) {
